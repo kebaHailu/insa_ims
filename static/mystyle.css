@@ -1,0 +1,29 @@
+
+.my-card:hover{
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+
+.ver {
+    background : url('/media/back.jpg');
+    background-position : center;
+    background-size : cover;
+    height : 100vh
+
+}
+.mywhite {
+    background : url('/media/back.jpg');
+    background-position : center;
+    background-size : cover;
+    height : 100vh;
+}
+.back {
+    background : url('/media/back.jpg');
+    background-position : center;
+    background-size : cover;
+    height:100vh;
+
+    
+   
+}  

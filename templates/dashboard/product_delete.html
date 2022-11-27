@@ -1,0 +1,29 @@
+<div class="bg-secondary " style="height:100%">
+{% extends 'partials/base.html' %}
+{% block title %}Delete page {% endblock %}
+{% block content %} 
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border bg-dark text-warning p-3">
+                <h3> Delete Item </h3>
+                <hr>
+                <div class="alert alert-dark">
+                    <h4>Are you sure you want to delete? </h4>
+
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form}}
+                    <a  class="btn btn-info" href="{% url 'dashboard-products' %}">Cancel</a>
+                    <input class="btn btn-danger " type="submit" value="Confirm">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

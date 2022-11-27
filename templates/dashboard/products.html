@@ -1,0 +1,65 @@
+<div class="bg-secondary " >
+{% extends 'partials/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Products page{% endblock %}
+
+{% block content %}
+{% include 'partials/topnav.html' %}
+
+
+    <!--Table-->
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-4">
+           
+
+                <div class="border bg-dark text-warning p-3">
+                    <h4>Add Products</h4>
+                    <hr>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                       
+                        <input class="btn btn-success btn-block" type="submit" value="Add Product">
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <table class="table bg-dark text-warning">
+                    <thead class="bg-dark">
+                        <tr class="text-warning">
+                            
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                        <tr>
+                           
+                            <td><a class="text-warning" href="{% url 'dashboard-product-update' item.id %}">{{item.name}}</a></td>
+                            <td>{{item.category}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>
+                               
+                                <a class="btn btn-danger btn-sm" href="{% url 'dashboard-product-delete' item.id %}">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--End Table-->
+
+{% endblock %}
+</div>

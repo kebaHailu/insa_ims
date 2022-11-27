@@ -1,0 +1,27 @@
+{% extends 'partials/base.html' %}
+{% block title %} Sign_Up {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %} 
+
+
+<div class="ver">
+    <div class="container float-left ">
+        <div class="row   pt-4 offset-md-1">
+            <div class="col-md-5  ">
+                <div class="card bg-dark text-warning ">
+                   
+                    <div class="card-body shadow">
+                        <h2 class="text-center">Create An Account</h2><hr>
+                        <form method="POST">
+                        {% csrf_token %}
+                            {{form | crispy}}
+                    <input class="btn btn-success btn-block"  type="submit" value="Sign Up">
+                        </form>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+{% endblock %}

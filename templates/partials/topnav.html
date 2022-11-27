@@ -1,0 +1,74 @@
+ 
+    <!--Topside-->
+    <div class="container">
+        <div class="row mt-4 ">
+            <div class="col-md-4">
+                <div class="card h-70">
+                    <div class="card-header bg-dark text-warning">
+                        Information
+                    </div>
+                    <div class="card-body bg-dark">
+                    
+                        <marquee
+                             direction="down"
+                             width="330"
+                             height="140"
+                             behavior="alternate"
+                         >
+                        <marquee behavior="alternate">  <h4 class=" text-warning">New Information</h4> </marquee>
+                        </marquee>
+                        {% for message in messages %}
+                        {% if message %}
+                        <div class="alert alert-{{message.tags}}">
+                                 {{ message }}
+                         </div>
+
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-dark text-warning">
+                        Statistics
+                        <a class="text-decoration-none text-dark" href="{% url 'dashboard-index'%}">
+                            <div class="card my-card shadow text-center  bg-warning  p-3">
+                                <h2>Dashboard <i class="fas fa-box"></i></h2>
+                               
+                            </div>
+                        </a>   
+                    </div>
+                    <div class="card-body bg-dark">
+                        <div class="row">
+                            <div class="col-md-4 ">
+                                <a class="text-decoration-none text-dark " href="{% url 'dashboard-staff'%}">
+                                    <div class="card my-card shadow text-center bg-warning  p-3">
+                                        <h4>Staff <i class="fas fa-users"></i></h4>
+                                        <h3>{{ workers_count }}</h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="text-decoration-none text-dark" href="{% url 'dashboard-products'%}">
+                                    <div class="card my-card shadow text-center  bg-warning  p-3">
+                                        <h4>Products <i class="fas fa-box"></i></h4>
+                                        <h3>{{products_count}}</h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="text-decoration-none text-dark" href="{% url 'dashboard-orders'%}">
+                                    <div class="card my-card shadow text-center  bg-warning  p-3">
+                                        <h4>Orders <i class="fas fa-shipping-fast"></i></h4>
+                                        <h3>{{orders_count}}</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Topside-->

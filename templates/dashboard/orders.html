@@ -1,0 +1,52 @@
+<div class="bg-secondary ">
+
+{% extends 'partials/base.html' %}
+
+{% block title %}Orders Page{% endblock %}
+
+{% block content %}
+{% include 'partials/topnav.html' %}
+
+    <!--Table-->
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-8">
+                <table class="table bg-dark text-warning">
+                    <thead class="bg-dark">
+                        <tr class="text-warning">
+                            
+                            <th scope="col">Product</th>
+                            <th scope="col">Catagory</th>
+                            <th scope="col">Staff</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Ordered Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in myOrder %}
+                        <tr>
+                            
+                            <td>{{order.product}}</td>
+                            <td>{{order.product.category}}</td>
+                            <td>{{order.staff.username}}</td>
+                            <td>{{order.order_quantity}}</td>
+                            <td>{{order.date}}</td>
+                          
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--End Table-->
+    
+</div>
+{% endblock %}
+

@@ -1,0 +1,40 @@
+<div class="bg-secondary " >
+{% extends 'partials/base.html' %}
+
+{% block title %}Staff Page{% endblock %}
+
+{% block content %}
+{% include 'partials/topnav.html' %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <table class="table bg-dark text-warning">
+                <thead class="bg-dark">
+                    <tr class="text-warning">
+                        
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone</th>
+                    </tr>
+                </thead>
+                <tbody> {% for worker in workers %}
+                    <tr>
+                        <!-- <th scope="row">View</th> -->
+                        <td><a class="text-warning" href="{% url 'dashboard-staff-view' worker.id %}">{{worker.username}}</a></td>
+                        <td>{{worker.email}}</td>
+                        <td>{{worker.profile.address}}</td>
+                        <td>{{worker.profile.phone}}</td>
+                    </tr>
+                   {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+</div>
